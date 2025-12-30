@@ -11,51 +11,50 @@ class NavigationDrawer extends StatelessWidget {
     final NavigationController controller = Get.find<NavigationController>();
 
     return Drawer(
-      child: Container(
-        color: const Color(0xFF2C3E50),
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration: const BoxDecoration(
-                color: Color(0xFF1A252F),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: 60,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF5B67F1),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const Icon(
-                      Icons.dashboard,
-                      color: Colors.white,
-                      size: 32,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  const Text(
-                    'Gogivam Dashboard',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    'Admin Panel',
-                    style: TextStyle(
-                      color: Colors.grey[400],
-                      fontSize: 14,
-                    ),
-                  ),
-                ],
-              ),
+      backgroundColor: Colors.white,
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          DrawerHeader(
+            decoration: const BoxDecoration(
+              color: Colors.white,
             ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF5B67F1),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(
+                    Icons.dashboard,
+                    color: Colors.white,
+                    size: 32,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                const Text(
+                  'Gogivam Dashboard',
+                  style: TextStyle(
+                    color: Colors.black87,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  'Admin Panel',
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            ),
+          ),
             Obx(() {
               return Column(
                 children: [
@@ -66,7 +65,7 @@ class NavigationDrawer extends StatelessWidget {
                   // Séparateur
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-                    child: Divider(color: Colors.white24),
+                    child: Divider(color: Colors.grey),
                   ),
                   // Reste des items
                   ...controller.menuItems.skip(1).map((item) {
@@ -75,8 +74,7 @@ class NavigationDrawer extends StatelessWidget {
                 ],
               );
             }),
-          ],
-        ),
+        ],
       ),
     );
   }
@@ -103,7 +101,7 @@ class NavigationDrawer extends StatelessWidget {
             bottom: 2.0,
           ),
           decoration: BoxDecoration(
-            color: isActive ? Colors.white.withOpacity(0.1) : Colors.transparent,
+            color: isActive ? const Color(0xFF5B67F1).withOpacity(0.1) : Colors.transparent,
             borderRadius: BorderRadius.circular(8),
           ),
           child: ListTile(
@@ -111,15 +109,15 @@ class NavigationDrawer extends StatelessWidget {
               item.icon,
               color: isActive
                   ? const Color(0xFF5B67F1)
-                  : (isActiveOrChild ? Colors.white : Colors.white70),
+                  : (isActiveOrChild ? const Color(0xFF5B67F1) : Colors.black87),
               size: 24,
             ),
             title: Text(
               item.title,
               style: TextStyle(
                 color: isActive
-                    ? Colors.white
-                    : (isActiveOrChild ? Colors.white : Colors.white70),
+                    ? const Color(0xFF5B67F1)
+                    : (isActiveOrChild ? const Color(0xFF5B67F1) : Colors.black87),
                 fontSize: 15,
                 fontWeight: isActive ? FontWeight.w600 : FontWeight.normal,
               ),
@@ -129,7 +127,7 @@ class NavigationDrawer extends StatelessWidget {
                     isExpanded
                         ? Icons.keyboard_arrow_down
                         : Icons.keyboard_arrow_right,
-                    color: Colors.white70,
+                    color: Colors.black54,
                     size: 20,
                   )
                 : null,
