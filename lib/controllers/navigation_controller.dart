@@ -326,7 +326,7 @@ class NavigationController extends GetxController {
       return item.page!;
     }
     // Par défaut, retourner le dashboard
-    return const DashboardScreen();
+    return  DashboardScreen();
   }
 
   void toggleExpanded(String menuItemId) {
